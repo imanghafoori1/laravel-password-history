@@ -43,6 +43,19 @@ And there is a validation rule for you to check the entire password history agai
 
 Again you may want to take a quick look at the source code to see what is going on there.
 
+### Validation Rules
+
+```php
+<?php
+$rules = [
+    'password' => [
+       'required',
+       'confirmed',
+       new UnusedPassword($this->user),
+    ]
+],
+```
+
 # QA
 
 - I have a `users` table and an `admins` table (User model and Admin model), can I also track password changes for admins?
