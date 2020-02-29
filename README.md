@@ -47,13 +47,20 @@ Again you may want to take a quick look at the source code to see what is going 
 
 ```php
 <?php
+use Imanghafoori\PasswordHistory\Rules\NotInPasswordHistory;
+//...
+
 $rules = [
+    // ... 
     'password' => [
        'required',
        'confirmed',
-       new UnusedPassword($this->user),
+       NotInPasswordHistory::ofUser($this->user),
     ]
-],
+    // ... 
+];
+
+$this->validate(...);
 ```
 
 # QA
