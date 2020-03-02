@@ -29,22 +29,24 @@ $passHash = Hash::make(request('new_password'));
 $user->password = $passHash;
 $user->save(); // after saving the model, the password change  will be recorded, automatically
 ```
+
+We suggest to use `saveOrFail` to do all the queries in a transaction
+```
+$user->saveOrFail();
+```
+
 Be careful that chaing the model like below does not fire any model event hence to password change would be recorded behind the scenses.
 
 ```php
 <?php
-// Here we do NOT get the model from db
-// and only send an update query
-// so laravel does not fire model events
+// Here we do NOT get the model from db and only send  an update query
+// So laravel does NOT fire model events
 User::where('id', $id)->update($data);
 ```
 
-And there is a validation rule for you to check the entire password history agaist the new password in laravel validation rules.
-
-Again you may want to take a quick look at the source code to see what is going on there.
-
 ### Validation Rules
 
+And there is a validation rule for you to check the entire password history agaist the new password in laravel validation rules.
 ```php
 <?php
 use Imanghafoori\PasswordHistory\Rules\NotInPasswordHistory;
@@ -62,6 +64,9 @@ $rules = [
 
 $this->validate(...);
 ```
+
+Again you may want to take a quick look at the source code to see what is going on there.
+
 
 # QA
 
