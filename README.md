@@ -49,7 +49,7 @@ User::where('id', $id)->update($data);
 And there is a validation rule for you to check the entire password history agaist the new password in laravel validation rules.
 ```php
 <?php
-use Imanghafoori\PasswordHistory\Rules\NotInPasswordHistory;
+use Imanghafoori\PasswordHistory\Rules\NotBeInPasswordHistory;
 //...
 
 $rules = [
@@ -57,7 +57,7 @@ $rules = [
     'password' => [
        'required',
        'confirmed',
-       NotInPasswordHistory::ofUser($this->user),
+       NotBeInPasswordHistory::ofUser($this->user),
     ]
     // ... 
 ];

@@ -6,13 +6,21 @@ use Imanghafoori\Models\Auth\User;
 use Illuminate\Contracts\Validation\Rule;
 use Imanghafoori\PasswordHistory\Facades\PasswordHistoryManager;
 
-class UnusedPassword implements Rule
+class NotBeInPasswordHistory implements Rule
 {
     protected $user;
 
-    public function __construct($user)
+    private $depth;
+
+    public function __construct($user, $depth =  null)
     {
         $this->user = $user;
+        $this->depth = $depth;
+    }
+
+    public static function ofUser($user, $depth = null)
+    {
+        return new static($user, $depth);
     }
 
     /**
@@ -25,7 +33,7 @@ class UnusedPassword implements Rule
      */
     public function passes($attribute, $value)
     {
-        $depth = config('password_history.check_depth');
+        $depth = $this->depth ?: config('password_history.check_depth');
 
         return ! PasswordHistoryManager::isInHistoryOfUser($value, $this->user, $depth);
     }
