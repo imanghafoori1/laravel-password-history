@@ -6,16 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class PasswordHistory extends Model
 {
-    public function __construct()
+    protected $table;
+    protected $fillable = ['user_id','password', 'guard'];
+
+    public function __construct(array $attributes = [])
     {
         $this->table = config('password_history.table_name');
-        parent::__construct();
+        parent::__construct($attributes);
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['password', 'guard'];
 }
