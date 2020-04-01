@@ -17,6 +17,7 @@ return [
      */
     'models' => [
         \App\User::class => [
+            'id_column' => 'id',
             'password_column' => 'password',
             'guard' => 'user',
         ],

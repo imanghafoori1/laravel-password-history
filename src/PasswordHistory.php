@@ -9,11 +9,12 @@ class PasswordHistory
 {
     function logForUserModel($user)
     {
+        $idCol = $this->getIdCol($user);
         $passwordCol = $this->getPasswordCol($user);
 
         if ($user->$passwordCol && $user->isDirty($passwordCol)) {
             $guard = $this->getGuard($user);
-            PasswordHistoryRepo::logNewPassword($user->$passwordCol, $user->id, $guard);
+            PasswordHistoryRepo::logNewPassword($user->$passwordCol, $user->$idCol, $guard);
         }
     }
 
@@ -29,6 +30,13 @@ class PasswordHistory
         $models = config('password_history.models');
 
         return $models[get_class($user)]['password_column'] ?? 'password';
+    }
+
+    private function getIdCol($user)
+    {
+        $models = config('password_history.models');
+
+        return $models[get_class($user)]['id_column'] ?? 'id';
     }
 
     function isInHistoryOfUser($password, $user, $depth = null)
