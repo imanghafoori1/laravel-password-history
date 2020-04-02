@@ -13,7 +13,7 @@ class PasswordHistory
 
         if ($user->$passwordCol && $user->isDirty($passwordCol)) {
             $guard = $this->getGuard($user);
-            PasswordHistoryRepo::logNewPassword($user->$passwordCol, $user->id, $guard);
+            PasswordHistoryRepo::logNewPassword($user->$passwordCol, $user->getKey(), $guard);
         }
     }
 
