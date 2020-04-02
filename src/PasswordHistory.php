@@ -33,7 +33,7 @@ class PasswordHistory
 
     function isInHistoryOfUser($password, $user, $depth = null)
     {
-        return $this->isInHistory($password, $user->getKey(), $depth, $this->getGuard($user))->getOr(false);
+        return $this->isInHistory($password, $user->getKey(), $depth, $this->getGuard($user));
     }
 
     function isInHistory($password, $userId, $depth = null, $guard = '')
