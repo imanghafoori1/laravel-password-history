@@ -54,8 +54,18 @@ class PasswordHistoryTest extends TestCase
         $this->assertEquals(1, PasswordHistory::count());
     }
 
+    /** @test */
+    public function history_is_not_being_recorded_when_updating_bulkly()
+    {
+        $user = $this->createUser();
+
+        User::whereId($user->id)->update(['name' => 'new name']);
+
+        $this->assertEquals(1, PasswordHistory::count());
+    }
+
     private function createUser()
     {
-        factory(User::class)->create();
+        return factory(User::class)->create();
     }
 }
