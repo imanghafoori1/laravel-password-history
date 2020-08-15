@@ -22,11 +22,5 @@ return [
             'password_column' => 'password',
             'guard' => 'user',
         ],
-     /**
-        \App\Admin::class => [
-            'password_column' => 'password',
-            'guard' => 'admin',
-        ],
-     */
     ],
 ];

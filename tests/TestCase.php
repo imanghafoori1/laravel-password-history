@@ -16,5 +16,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__.'/../src/Database/migrations');
         $this->loadMigrationsFrom(__DIR__.'/Requirements/database/migrations');
+        $this->withFactories(__DIR__.'/Requirements/database/factories');
     }
 }
