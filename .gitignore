@@ -2,3 +2,4 @@
 /log
 .phpunit.result.cache
 /.idea
+docker-compose.yaml

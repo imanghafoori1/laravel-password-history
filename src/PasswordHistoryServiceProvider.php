@@ -11,7 +11,7 @@ class PasswordHistoryServiceProvider extends ServiceProvider
     public function register()
     {
         PasswordHistoryManager::shouldProxyTo(PasswordHistory::class);
-        $this->mergeConfigFrom(__DIR__ .'/config/password_history.php', 'password_history');
+        $this->mergeConfig();
     }
     public function boot()
     {
@@ -35,5 +35,16 @@ class PasswordHistoryServiceProvider extends ServiceProvider
     private function setMigrationFolder()
     {
         $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
+    }
+
+    private function mergeConfig()
+    {
+        $configFile = __DIR__.'/config/password_history.php';
+
+        if($this->app->runningUnitTests()) {
+            $configFile = __DIR__.'/../tests/Requirements/config/password_history.php';
+        }
+
+        $this->mergeConfigFrom($configFile, 'password_history');
     }
 }
