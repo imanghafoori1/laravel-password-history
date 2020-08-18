@@ -70,9 +70,4 @@ class PasswordHistoryTest extends TestCase
 
         $this->assertEquals(1, PasswordHistory::count());
     }
-
-    private function createUser($attributes = [])
-    {
-        return factory(User::class)->create($attributes);
-    }
 }
