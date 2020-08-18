@@ -1,6 +1,6 @@
 <?php
 
-namespace Imanghafoori\PasswordHistoryTests\Feature;
+namespace Imanghafoori\PasswordHistoryTests\Integration;
 
 use Imanghafoori\PasswordHistory\Database\PasswordHistory;
 use Imanghafoori\PasswordHistoryTests\Requirements\Models\User;
@@ -8,7 +8,6 @@ use Imanghafoori\PasswordHistoryTests\TestCase;
 
 class PasswordHistoryTest extends TestCase
 {
-
     /** @test */
     public function history_is_stored_when_creating_new_user()
     {
@@ -46,12 +45,6 @@ class PasswordHistoryTest extends TestCase
         $user->save();
 
         $this->assertEquals(1, PasswordHistory::count());
-
-        $user->password = $user->password;
-
-        $user->save();
-
-        $this->assertEquals(1, PasswordHistory::count());
     }
 
     /** @test */
@@ -64,8 +57,22 @@ class PasswordHistoryTest extends TestCase
         $this->assertEquals(1, PasswordHistory::count());
     }
 
-    private function createUser()
+    /** @test */
+    public function history_is_not_being_recorded_if_new_password_used_before()
     {
-        return factory(User::class)->create();
+        $password = '111111';
+
+        $user = $this->createUser(['password' => $password]);
+
+        $user->password = $password;
+
+        $user->save();
+
+        $this->assertEquals(1, PasswordHistory::count());
+    }
+
+    private function createUser($attributes = [])
+    {
+        return factory(User::class)->create($attributes);
     }
 }
