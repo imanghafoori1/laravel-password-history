@@ -11,9 +11,8 @@ class PasswordHistory
     {
         $passwordCol = $this->getPasswordCol($user);
 
-        if ($user->$passwordCol && $user->isDirty($passwordCol)) {
-            $guard = $this->getGuard($user);
-            PasswordHistoryRepo::logNewPassword($user->$passwordCol, $user->getKey(), $guard);
+        if ($user->{$passwordCol} && $user->isDirty($passwordCol)) {
+            $this->logPasswordForUser($user->{$passwordCol}, $user);
         }
     }
 
