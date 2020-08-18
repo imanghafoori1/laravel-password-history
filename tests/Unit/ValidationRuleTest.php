@@ -25,7 +25,7 @@ class ValidationRuleTest extends TestCase
     }
 
     /** @test */
-    public function validation_wont_pass_when_password_not_used_before()
+    public function validation_wont_pass_when_password_used_before()
     {
         $password = '111111';
 
