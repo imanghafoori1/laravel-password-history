@@ -16,7 +16,7 @@ return [
      * The models to be observed on the "saved" event
      */
     'models' => [
-        \App\User::class => [
+        'App\User' => [
             'password_column' => 'password',
             'guard' => 'user',
         ],
