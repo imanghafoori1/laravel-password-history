@@ -7,16 +7,16 @@ use Imanghafoori\PasswordHistory\Database\PasswordHistoryRepo;
 
 class PasswordHistory
 {
-    function logForUserModel($user)
+    public function logForUserModel($user)
     {
         $passwordCol = $this->getPasswordCol($user);
 
-        if ($user->{$passwordCol} && $user->isDirty($passwordCol)) {
-            $this->logPasswordForUser($user->{$passwordCol}, $user);
+        if ($user->$passwordCol && $user->isDirty($passwordCol)) {
+            $this->logPasswordForUser($user->$passwordCol, $user);
         }
     }
 
-    function getGuard($user)
+    public function getGuard($user)
     {
         $models = config('password_history.models');
 
@@ -30,12 +30,12 @@ class PasswordHistory
         return $models[get_class($user)]['password_column'] ?? 'password';
     }
 
-    function isInHistoryOfUser($password, $user, $depth = null)
+    public function isInHistoryOfUser($password, $user, $depth = null)
     {
         return $this->isInHistory($password, $user->getKey(), $depth, $this->getGuard($user));
     }
 
-    function isInHistory($password, $userId, $depth = null, $guard = '')
+    public function isInHistory($password, $userId, $depth = null, $guard = '')
     {
         $depth = $depth ?: config('password_history.check_depth');
         $histories = PasswordHistoryRepo::getAllPasswords($userId, $depth, $guard);
@@ -49,14 +49,14 @@ class PasswordHistory
         return nullable();
     }
 
-    function latestChangeDate($user)
+    public function latestChangeDate($user)
     {
         $password = $this->getOfDepth($user, 1)->first();
 
         return nullable($password ? $password->created_at : null);
     }
 
-    function getCurrentPassword($user)
+    public function getCurrentPassword($user)
     {
         $password = $this->getOfDepth($user, 1)->first();
         $passwordCol = $this->getPasswordCol($user);
@@ -64,7 +64,7 @@ class PasswordHistory
         return nullable($password->$passwordCol ?? null);
     }
 
-    function passwordChangesCount($user)
+    public function passwordChangesCount($user)
     {
         // When there is no password at all, we return 0 (not -1)
         $count = $this->getOfDepth($user, null)->count();
@@ -72,7 +72,7 @@ class PasswordHistory
         return $count ? $count - 1 : 0;
     }
 
-    function logPasswordForUser($passwordHash, $user)
+    public function logPasswordForUser($passwordHash, $user)
     {
         return PasswordHistoryRepo::logNewPassword($passwordHash, $user->getKey(), $this->getGuard($user));
     }
