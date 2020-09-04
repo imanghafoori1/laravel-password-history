@@ -42,11 +42,11 @@ class PasswordHistory
 
         foreach ($histories as $history) {
             if (Hash::check($password, $history->password)) {
-                return nullable($history);
+                return true;
             }
         }
 
-        return nullable();
+        return false;
     }
 
     public function latestChangeDate($user)
