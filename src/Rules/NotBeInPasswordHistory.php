@@ -2,7 +2,6 @@
 
 namespace Imanghafoori\PasswordHistory\Rules;
 
-use Imanghafoori\Models\Auth\User;
 use Illuminate\Contracts\Validation\Rule;
 use Imanghafoori\PasswordHistory\Facades\PasswordHistoryManager;
 

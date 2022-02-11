@@ -4,17 +4,17 @@ namespace Imanghafoori\PasswordHistory\Database;
 
 class PasswordHistoryRepo
 {
-    static function getPreviousPasswords($userId, $depth = null, $guard = '')
+    public static function getPreviousPasswords($userId, $depth = null, $guard = '')
     {
         return self::fetch($userId, $depth, $guard, 1);
     }
 
-    static function getAllPasswords($userId, $depth = null, $guard = '')
+    public static function getAllPasswords($userId, $depth = null, $guard = '')
     {
         return self::fetch($userId, $depth, $guard);
     }
 
-    static function fetch($userId, $depth = null, $guard = '', $offset = null)
+    public static function fetch($userId, $depth = null, $guard = '', $offset = null)
     {
         $q = PasswordHistory::query()->where('user_id', $userId);
 
@@ -33,12 +33,12 @@ class PasswordHistoryRepo
         return $q->latest('id')->get();
     }
 
-    static function getCurrentPassword($id, $guard)
+    public static function getCurrentPassword($id, $guard)
     {
         return self::fetch($id, 1, $guard, 0)->first();
     }
 
-    static function logNewPassword($password, $user_id, $guard = '')
+    public static function logNewPassword($password, $user_id, $guard = '')
     {
         return PasswordHistory::query()->create(get_defined_vars());
     }

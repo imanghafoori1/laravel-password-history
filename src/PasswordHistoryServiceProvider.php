@@ -13,6 +13,7 @@ class PasswordHistoryServiceProvider extends ServiceProvider
         PasswordHistoryManager::shouldProxyTo(PasswordHistory::class);
         $this->mergeConfig();
     }
+
     public function boot()
     {
         if ($this->app->runningInConsole()) {
