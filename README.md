@@ -1,4 +1,4 @@
-# Laravel password history
+# Laravel Password History
 Keep a password history of your users to prevent them from reusing the same password, for security reasons like what google does.
 
 # Installation
