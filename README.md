@@ -1,7 +1,7 @@
 # Laravel Password History
 Keep a password history of your users to prevent them from reusing the same password, for security reasons like what google does.
 
-# Installation
+## Installation:
 ```
 composer require imanghafoori/laravel-password-history
 ```
@@ -9,12 +9,14 @@ composer require imanghafoori/laravel-password-history
 To publish the config file and migrate the database:
 ```
 php artisan vendor:publish
+```
+```
 php artisan migrate
 ```
 
 Visit the `config/password_history.php` file to see all the possibilities.
 
-# Usage
+## Usage:
 
 This package will observe the `saved` event of the models (which are mentioned in the config file) and records the password hashes automatically.
 ```php
@@ -68,7 +70,7 @@ $this->validate(...);
 Again you may want to take a quick look at the source code to see what is going on there.
 
 
-# QA
+## QA
 
 - I have a `users` table and an `admins` table (User model and Admin model), can I also track password changes for admins?
 ```
