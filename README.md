@@ -81,8 +81,6 @@ Yeah, the package supports it, visit the config file.
 
 ### :raising_hand: Contributing 
 If you find an issue or have a better way to do something, feel free to open an issue or a pull request.
-If you use laravel-widgetize in your open source project, create a pull request to provide its URL as a sample application in the README.md file. 
-
 
 ### :exclamation: Security
 If you discover any security-related issues, please use the `security tab` instead of using the issue tracker.
@@ -130,12 +128,6 @@ As always if you found this package useful and you want to encourage us to maint
 - https://github.com/imanghafoori1/laravel-anypass
 
 ------------
-
-### Eloquent Relativity
-
-:gem: It allows you to decouple your eloquent models to reach a modular structure
-
-- https://github.com/imanghafoori1/eloquent-relativity
 
 
 <p align="center">
