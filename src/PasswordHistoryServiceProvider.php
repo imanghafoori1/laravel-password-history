@@ -42,9 +42,9 @@ class PasswordHistoryServiceProvider extends ServiceProvider
     {
         $configFile = __DIR__.'/config/password_history.php';
 
-        if($this->app->runningUnitTests()) {
+        /*if($this->app->runningUnitTests()) {
             $configFile = __DIR__.'/../tests/Requirements/config/password_history.php';
-        }
+        }*/
 
         $this->mergeConfigFrom($configFile, 'password_history');
     }
