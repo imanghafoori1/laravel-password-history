@@ -6,6 +6,7 @@ Keep a password history of your users to prevent them from reusing the same pass
 [![Daily Downloads](https://poser.pugx.org/imanghafoori/laravel-password-history/d/daily)](https://packagist.org/packages/imanghafoori/laravel-password-history)
 [![Total Downloads](https://poser.pugx.org/imanghafoori/laravel-password-history/downloads)](https://packagist.org/packages/imanghafoori/laravel-password-history)
 [![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=round-square)](LICENSE.md)
+[![Imports](https://github.com/imanghafoori1/laravel-password-history/actions/workflows/check_imports.yml/badge.svg?branch=master)](https://github.com/imanghafoori1/laravel-password-history/actions/workflows/check_imports.yml)
 
 ## Installation:
 ```
