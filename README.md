@@ -1,6 +1,12 @@
 # Laravel Password History
 Keep a password history of your users to prevent them from reusing the same password, for security reasons like what google does.
 
+[![StyleCI](https://github.styleci.io/repos/139709518/shield?branch=master)](https://github.styleci.io/repos/139709518)
+[![Latest Stable Version](https://poser.pugx.org/imanghafoori/laravel-password-history/v/stable)](https://packagist.org/packages/imanghafoori/laravel-password-history)
+[![Daily Downloads](https://poser.pugx.org/imanghafoori/laravel-password-history/d/daily)](https://packagist.org/packages/imanghafoori/laravel-password-history)
+[![Total Downloads](https://poser.pugx.org/imanghafoori/laravel-password-history/downloads)](https://packagist.org/packages/imanghafoori/laravel-password-history)
+[![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=round-square)](LICENSE.md)
+
 ## Installation:
 ```
 composer require imanghafoori/laravel-password-history
