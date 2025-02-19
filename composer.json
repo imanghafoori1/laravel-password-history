@@ -1,55 +1,55 @@
 {
-  "name": "imanghafoori/laravel-password-history",
-  "description": "A package to keep a history of all password changes of users",
-  "keywords": [
-    "laravel",
-    "laravel-authentication",
-    "laravel-login",
-    "laravel-security",
-    "laravel-password",
-    "laravel-package",
-    "PHP"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/imanghafoori1/laravel-password-history",
-  "authors": [
-    {
-      "name": "Iman Ghafoori",
-      "email": "imanghafoori1@gmail.com"
+    "name": "imanghafoori/laravel-password-history",
+    "description": "A package to keep a history of all password changes of users",
+    "keywords": [
+        "laravel",
+        "laravel-authentication",
+        "laravel-login",
+        "laravel-security",
+        "laravel-password",
+        "laravel-package",
+        "PHP"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/imanghafoori1/laravel-password-history",
+    "authors": [
+        {
+            "name": "Iman Ghafoori",
+            "email": "imanghafoori1@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3|7.2.*|7.3.*|7.4.*|8.*",
+        "laravel/framework": "~5.1|6.*|7.*|8.*|9.*|10.*|11.*|^12.0",
+        "imanghafoori/laravel-nullable": "^1.2",
+        "imanghafoori/laravel-smart-facades": "^1.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Imanghafoori\\PasswordHistoryTests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.0|^10.0",
+        "mockery/mockery": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imanghafoori\\PasswordHistory\\": "src"
+        }
+    },
+    "suggest": {
+        "imanghafoori/laravel-heyman": "It allows to write expressive code to authorize, validate and authenticate.",
+        "imanghafoori/laravel-decorator": "Allows you to easily apply the decorator pattern.",
+        "imanghafoori/laravel-terminator": "Gives you opportunity to refactor your controllers.",
+        "imanghafoori/laravel-anypass": " Allows you login with any password in local environment.",
+        "imanghafoori/laravel-masterpass": "You can easily set a master password without code change."
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Imanghafoori\\PasswordHistory\\PasswordHistoryServiceProvider"
+            ]
+        }
     }
-  ],
-  "require": {
-    "php": "^7.1.3|7.2.*|7.3.*|7.4.*|8.*",
-    "laravel/framework": "~5.1|6.*|7.*|8.*|9.*|10.*|11.*",
-    "imanghafoori/laravel-nullable": "^1.2",
-    "imanghafoori/laravel-smart-facades": "^1.0"
-  },
-  "autoload-dev": {
-      "psr-4": {
-        "Imanghafoori\\PasswordHistoryTests\\" : "tests"
-      }
-  },
-  "require-dev": {
-    "orchestra/testbench": "~3.0",
-    "mockery/mockery": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "Imanghafoori\\PasswordHistory\\" : "src"
-    }
-  },
-  "suggest": {
-    "imanghafoori/laravel-heyman": "It allows to write expressive code to authorize, validate and authenticate.",
-    "imanghafoori/laravel-decorator": "Allows you to easily apply the decorator pattern.",
-    "imanghafoori/laravel-terminator": "Gives you opportunity to refactor your controllers.",
-    "imanghafoori/laravel-anypass": " Allows you login with any password in local environment.",
-    "imanghafoori/laravel-masterpass": "You can easily set a master password without code change."
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Imanghafoori\\PasswordHistory\\PasswordHistoryServiceProvider"
-      ]
-    }
-  }
 }
